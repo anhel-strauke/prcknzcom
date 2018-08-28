@@ -7,6 +7,6 @@ but there is no rocket science or any amazing features.
 
 Things I use:
 
-* Python 2.7
-* Flask (or Django)
+* Python 3.4
+* Django
 * MySQL (or Sqlite)
