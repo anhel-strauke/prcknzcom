@@ -1,0 +1,74 @@
+# Load an :class:`Environment` instance defined in the YAML file.
+#
+# Expects the following format:
+#
+# .. code-block:: yaml
+#
+#     directory: ../static
+#     url: /media
+#     debug: True
+#     updater: timestamp
+#     filters:
+#         - my_custom_package.my_filter
+#     config:
+#         compass_bin: /opt/compass
+#         another_custom_config_value: foo
+#
+#     bundles:
+#         # ...
+#
+# All values, including ``directory`` and ``url`` are optional. The
+# syntax for defining bundles is the same as for
+# :meth:`~.YAMLLoader.load_bundles`.
+
+# Expects the following format:
+#
+# .. code-block:: yaml
+#
+#     bundle-name:
+#         filters: sass,cssutils
+#         output: cache/default.css
+#         contents:
+#             - css/jquery.ui.calendar.css
+#             - css/jquery.ui.slider.css
+#     another-bundle:
+#         # ...
+#
+# Bundles may reference each other:
+#
+# .. code-block:: yaml
+#
+#     js-all:
+#         contents:
+#             - jquery.js
+#             - jquery-ui    # This is a bundle reference
+#     jquery-ui:
+#         contents: jqueryui/*.js
+#
+# If an ``environment`` argument is given, it's bundles
+# may be referenced as well. Note that you may pass any
+# compatibly dict-like object.
+#
+# Finally, you may also use nesting:
+#
+# .. code-block:: yaml
+#
+#     js-all:
+#         contents:
+#             - jquery.js
+#             # This is a nested bundle
+#             - contents: "*.coffee"
+#               filters: coffeescript
+
+directory: ../static
+load_path:
+  - ../assets_src/
+# Just test resources
+# TODO: replace with real ones
+bundles:
+  styles:
+    filters:  less
+    output:   css/styles.css
+    contents:
+      - less/main.less
+      - less/framework.less
