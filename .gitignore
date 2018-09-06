@@ -1,4 +1,16 @@
+# VirtualEnv directory
 env/
+
+# WebAssets cache
+.webassets-cache/
+
+# Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Secret files
+secret.txt
+production_database_config.py
+production_email_config.py
+production_staticfiles_config.py
